@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.spring.jersey</groupId>
+  <artifactId>spring-jersey-template</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <build>
+    <finalName>spring-jersey-template</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+        		<groupId>org.apache.tomcat.maven</groupId>
+       			<artifactId>tomcat7-maven-plugin</artifactId>
+        		<version>2.2</version>
+        		<configuration>
+        			<port>8080</port>
+        			<path>/services</path>
+        		</configuration>
+      		</plugin>
+      		<plugin>            
+				  <groupId>org.apache.maven.plugins</groupId>
+				  <artifactId>maven-war-plugin</artifactId>
+				  <configuration>
+				    <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
+				  </configuration>
+			</plugin>
+        </plugins>
+  </build>
+  
+  <dependencies>
+
+    <!-- Jersey -->
+
+    <dependency>
+        <groupId>com.sun.jersey.contribs</groupId>
+		<artifactId>jersey-spring</artifactId>
+		<version>1.8</version>
+        <exclusions>
+            <exclusion>
+                <artifactId>spring-context</artifactId>
+                <groupId>org.springframework</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>spring-beans</artifactId>
+                <groupId>org.springframework</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>spring-core</artifactId>
+                <groupId>org.springframework</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>spring-web</artifactId>
+                <groupId>org.springframework</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>jersey-server</artifactId>
+                <groupId>org.glassfish.jersey.core</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>
+                    jersey-container-servlet-core
+                </artifactId>
+                <groupId>org.glassfish.jersey.containers</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>hk2</artifactId>
+                <groupId>org.glassfish.hk2</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+     <dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-bundle</artifactId>
+		<version>1.8</version>
+	</dependency>
+
+    <!-- Spring 4 dependencies -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>4.0.6.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>4.0.6.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>4.0.6.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>4.0.6.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>4.0.6.RELEASE</version>
+    </dependency>
+
+</dependencies>
+</project>
